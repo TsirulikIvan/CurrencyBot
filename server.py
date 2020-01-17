@@ -1,8 +1,13 @@
 import telebot
 from urllib.request import urlopen
 from xml.etree import ElementTree as ET
+import os
+from dotenv import load_dotenv
+dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+if os.path.exists(dotenv_path):
+    load_dotenv(dotenv_path)
 
-API_TOKEN = "937787082:AAFOsK43-3Aq0UpuLYQ8-hFX2edgENzgkmQ"
+API_TOKEN = os.getenv('API_TOKEN')
 
 bot = telebot.TeleBot(API_TOKEN)
 
